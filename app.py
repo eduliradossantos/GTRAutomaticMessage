@@ -74,26 +74,8 @@ if menu == "Configurações":
             st.session_state['wa_phone_id'] = st.text_input("WhatsApp Phone Number ID", value=st.session_state.get('wa_phone_id', ''), key='wa_phone_id_input')
             
         if st.form_submit_button("Salvar Configurações"):
-            full_settings = {
-                "smtp": {
-                    "host": st.session_state.get('smtp_host_input'),
-                    "port": st.session_state.get('smtp_port_input'),
-                    "username": st.session_state.get('smtp_user_input'),
-                    "password": st.session_state.get('smtp_pass_input'),
-                    "from_email": st.session_state.get('smtp_from_input'),
-                    "use_tls": st.session_state.get('smtp_tls_input')
-                },
-                "whatsapp": {
-                    "token": st.session_state.get('wa_token_input'),
-                    "phone_id": st.session_state.get('wa_phone_id_input')
-                }
-            }
-            
-            try:
-                save_settings(full_settings) 
-                st.success("Configurações salvas com sucesso.")
-            except Exception as e:
-                st.error(f"Erro ao salvar configurações: {e}")
+            save_settings()
+            st.success("Configurações salvas na sessão.")
             
     # 2. Botões de Teste fora do Form (para evitar o erro de contexto)
     # Recriar smtp_cfg e wa_cfg fora do form para que os botões de teste possam usá-los
