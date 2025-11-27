@@ -38,8 +38,8 @@ def test_whatsapp_config():
 
 
 # Streamlit UI
-st.set_page_config(page_title="GTR - Sistema de Mensagens", layout='wide')
-st.title("GTR — Sistema de Mensagens (Streamlit + SQLite)")
+st.set_page_config(page_title="GTR — Sistema de Mensagens)", layout='wide')
+st.title("Sistema de Mensagens da Gerência de Tecnologia em Rede (SEPTI/SEDUC Recife)")
 
 menu = st.sidebar.selectbox("Menu", [
     "Configurações",
