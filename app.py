@@ -1,4 +1,3 @@
-from curses import meta
 import streamlit as st
 from datetime import datetime, date, timedelta
 import json
@@ -104,8 +103,7 @@ if menu == "Configurações":
             if success:
                 st.success(f"Teste WhatsApp bem-sucedido! Detalhes: {details}")
             else:
-                st.error(f"Falha no teste WhatsApp. Detalhes: {meta# ---------------- CADASTRAR USUÁRIO ----------------}")
-                                                               
+                st.error(f"Falha no teste WhatsApp. Detalhes: {details}")
 elif menu == "Cadastrar Usuário":
     st.header("Cadastrar Novo Usuário")
     
@@ -357,7 +355,7 @@ elif menu == "Criar Lembrete":
                         st.success(f"Lembrete '{title}' agendado para {len(users_in_role)} usuários com a função {selected_role} em {remind_at}.")
                         
                 else:
-                    st.error("Título, Descrição e Seleção de Destinatário são obrigatórios."# ---------------- GERENCIAR USUÁRIOS ----------------
+                    st.error("Título, Descrição e Seleção de Destinatário são obrigatórios.")
 elif menu == "Gerenciar Usuários":
     st.header("Gerenciar Usuários Cadastrados")
     

@@ -1,4 +1,61 @@
-venv/
+# === Python ===
 __pycache__/
-configs/
-gtr_messages.db
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+.env.bak/
+.venv/
+
+# Cache e logs
+*.log
+*.tmp
+*.temp
+*.bak
+
+# Arquivos de base de dados
+*.db
+*.sqlite
+*.sqlite3
+
+# Configurações locais / segredos
+config.ini
+*.env
+secrets.json
+
+# Arquivos do Streamlit
+.streamlit/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários do VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# Distribuição / build
+dist/
+build/
+*.egg
+*.egg-info/
+.eggs/
+
+# Arquivos de teste
+.coverage
+pytest_cache/
+*.pytest_cache/
+*/
+
+# Documentos pesados
+*.pdf
+*.zip
+*.rar
+*.7z
