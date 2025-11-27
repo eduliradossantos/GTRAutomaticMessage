@@ -225,7 +225,7 @@ elif menu == "Upload de Usuários (CSV/XLS)":
                         st.error(f"Erro ao processar a linha {index+2}: {e}")
                         
                 st.success(f"Processamento concluído. {count} usuários cadastrados com sucesso!")
-                st.experimental_rerun()
+                st.rerun()
                 
         except Exception as e:
             st.error(f"Erro ao ler o arquivo: {e}")
@@ -445,15 +445,15 @@ elif menu == "Gerenciar Usuários":
                         }
                         update_user(selected_id, user_data)
                         st.success(f"Usuário {name} (ID: {selected_id}) atualizado com sucesso!")
-                        st.experimental_rerun()
+                        st.rerun()
                     else:
                         st.error("Nome, E-mail, Função e Local são obrigatórios.")
                         
             with col_delete:
-                if st.button("Excluir Usuário", type="primary"):
+                if st.form_submit_button("Excluir Usuário", type="primary"):
                     delete_user(selected_id)
                     st.warning(f"Usuário (ID: {selected_id}) excluído com sucesso!")
-                    st.experimental_rerun()
+                    st.rerun()
 # ---------------- GERENCIAR LEMBRETES ----------------
 elif menu == "Gerenciar Lembretes":
     st.header("Gerenciar Lembretes Agendados")
@@ -496,6 +496,7 @@ elif menu == "Gerenciar Lembretes":
             try:
                 dt = datetime.fromisoformat(reminder_to_edit['remind_at'])
                 remind_date = dt.date()
+                remind_date = max(remind_date, date.today()) # Garante que a data não seja anterior a hoje
                 remind_time = dt.time()
             except:
                 remind_date = date.today()
@@ -525,15 +526,15 @@ elif menu == "Gerenciar Lembretes":
                         }
                         update_reminder(selected_id, reminder_data)
                         st.success(f"Lembrete '{title}' (ID: {selected_id}) atualizado com sucesso!")
-                        st.experimental_rerun()
+                        st.rerun()
                     else:
                         st.error("Título e Descrição são obrigatórios.")
                         
             with col_delete:
-                if st.button("Excluir Lembrete", type="primary"):
+                if st.form_submit_button("Excluir Lembrete", type="primary"):
                     delete_reminder(selected_id)
                     st.warning(f"Lembrete (ID: {selected_id}) excluído com sucesso!")
-                    st.experimental_rerun()
+                    st.rerun()
 
 # ---------------- LOGS DE ENVIO ----------------
 elif menu == "Logs de Envio":
